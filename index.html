@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة أسعار الذهب الاحترافية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🏆 حاسبة أسعار الذهب</h1>
+                <p class="subtitle">دقيقة • احترافية • تفاعلية</p>
+            </div>
+        </header>
+
+        <!-- Main Calculator Section -->
+        <main class="calculator">
+            <!-- Input Section -->
+            <aside class="input-section">
+                <!-- Widget 1: Market Prices -->
+                <div class="input-card widget-card">
+                    <div class="widget-header">
+                        <h2>📊 أسعار البورصة والصرف</h2>
+                        <span class="widget-badge">1</span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="xauPrice">
+                            سعر الذهب بالبورصة (XAUUSD)
+                            <span class="tooltip">ℹ️
+                                <span class="tooltip-text">سعر أونصة الذهب (31.1035 غرام) بالدولار الأمريكي من البورصة العالمية</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="xauPrice" 
+                                placeholder="أدخل سعر الأونصة"
+                                min="0"
+                                step="0.01"
+                                value="0"
+                                class="no-spinners"
+                            >
+                            <span class="currency-label">$ USD</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="exchangeRateType">
+                            نوع سعر الصرف
+                            <span class="tooltip">ℹ️
+                                <span class="tooltip-text">اختر نوع العملة لسعر الصرف</span>
+                            </span>
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="exchangeRateType">
+                                <option value="new">ل.س جديد</option>
+                                <option value="old">ل.س قديم</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="exchangeRate">
+                            سعر صرف الدولار
+                            <span class="tooltip">ℹ️
+                                <span class="tooltip-text">أدخل سعر صرف الدولار (مثال: 115)</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="exchangeRate" 
+                                placeholder="أدخل سعر الصرف"
+                                min="0"
+                                step="0.01"
+                                value="0"
+                                class="no-spinners"
+                            >
+                            <span class="currency-label-left" id="exchangeRateLabel">ل.س جديد / $</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="goldPrice">
+                            سعر غرام الذهب (عيار 24)
+                            <span class="tooltip">ℹ️
+                                <span class="tooltip-text">يُحسب تلقائياً من البورصة أو أدخل يدوياً</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="goldPrice" 
+                                placeholder="يُحسب تلقائياً"
+                                min="0"
+                                step="0.01"
+                                value="0"
+                                readonly
+                            >
+                            <span class="currency-label">ل.س جديد</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget 2: Piece Information -->
+                <div class="input-card widget-card">
+                    <div class="widget-header">
+                        <h2>💎 معلومات القطعة</h2>
+                        <span class="widget-badge">2</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="transactionType">
+                            نوع المعاملة
+                            <span class="tooltip">ℹ️
+                                <span class="tooltip-text">اختر شراء (للمشتري) أو بيع (للبائع)</span>
+                            </span>
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="transactionType">
+                                <option value="buyer">🛒 شراء (المشتري)</option>
+                                <option value="seller">💰 بيع (البائع)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="weight">
+                            وزن القطعة الذهبية
+                            <span class="tooltip">ℹ️
+                                <span class="tooltip-text">أدخل وزن القطعة بالغرام - مثال: 1.5 أو 5.75</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="weight" 
+                                placeholder="أدخل الوزن"
+                                min="0"
+                                step="0.01"
+                                value="0"
+                                class="no-spinners"
+                            >
+                            <span class="currency-label">غرام</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget 3: Manufacturing Fees -->
+                <div class="input-card widget-card">
+                    <div class="widget-header">
+                        <h2>🔧 رسم المصنعية</h2>
+                        <span class="widget-badge">3</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="manufacturingCurrency">
+                            عملة رسم المصنعية
+                            <span class="tooltip">ℹ️
+                                <span class="tooltip-text">اختر العملة التي تريد حساب الرسوم بها</span>
+                            </span>
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="manufacturingCurrency">
+                                <option value="syp_new">ل.س جديد</option>
+                                <option value="syp_old">ل.س قديم</option>
+                                <option value="usd">دولار أمريكي ($)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="manufacturing">
+                            رسم مصنعية (اختياري)
+                            <span class="tooltip">ℹ️
+                                <span class="tooltip-text">رسم المصنعية الإجمالي للقطعة - يُضاف للبيع ويُطرح من الشراء</span>
+                            </span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="manufacturing" 
+                                placeholder="0"
+                                min="0"
+                                step="0.01"
+                                value="0"
+                                class="no-spinners"
+                            >
+                            <span class="currency-label" id="manufacturingLabel">ل.س جديد</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reset Button -->
+                <button class="reset-btn" id="resetBtn" title="اضغط Escape لإعادة التعيين">
+                    <span class="reset-icon">🔄</span>
+                    <span>إعادة تعيين</span>
+                </button>
+            </aside>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <!-- Karat Prices -->
+                <div class="results-card karat-card">
+                    <div class="card-header">
+                        <h2>💰 أسعار العيارات (لكل غرام)</h2>
+                        <div class="currency-switch">
+                            <label class="switch-label">
+                                <input type="radio" name="karatCurrency" value="new" checked id="karatCurrencyNew">
+                                <span class="switch-btn">ل.س جديد</span>
+                            </label>
+                            <label class="switch-label">
+                                <input type="radio" name="karatCurrency" value="old" id="karatCurrencyOld">
+                                <span class="switch-btn">ل.س قديم</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="karat-grid">
+                        <div class="karat-item karat-24">
+                            <span class="karat-label">عيار 24</span>
+                            <span class="karat-price" id="price24">0</span>
+                            <span class="currency" id="currency24">ل.س جديد</span>
+                        </div>
+                        <div class="karat-item karat-22">
+                            <span class="karat-label">عيار 22</span>
+                            <span class="karat-price" id="price22">0</span>
+                            <span class="currency" id="currency22">ل.س جديد</span>
+                        </div>
+                        <div class="karat-item karat-21">
+                            <span class="karat-label">عيار 21</span>
+                            <span class="karat-price" id="price21">0</span>
+                            <span class="currency" id="currency21">ل.س جديد</span>
+                        </div>
+                        <div class="karat-item karat-18">
+                            <span class="karat-label">عيار 18</span>
+                            <span class="karat-price" id="price18">0</span>
+                            <span class="currency" id="currency18">ل.س جديد</span>
+                        </div>
+                        <div class="karat-item karat-14">
+                            <span class="karat-label">عيار 14</span>
+                            <span class="karat-price" id="price14">0</span>
+                            <span class="currency" id="currency14">ل.س جديد</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Piece Calculation -->
+                <div class="results-card piece-card">
+                    <div class="card-header">
+                        <h2>📊 حساب سعر القطعة</h2>
+                        <div class="currency-switch">
+                            <label class="switch-label">
+                                <input type="radio" name="pieceCurrency" value="new" checked id="pieceCurrencyNew">
+                                <span class="switch-btn">ل.س جديد</span>
+                            </label>
+                            <label class="switch-label">
+                                <input type="radio" name="pieceCurrency" value="old" id="pieceCurrencyOld">
+                                <span class="switch-btn">ل.س قديم</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="piece-result">
+                        <div class="result-row main-result">
+                            <label>السعر الإجمالي</label>
+                            <div class="price-display">
+                                <span class="price-value" id="totalPrice">0</span>
+                                <span class="currency" id="totalPriceCurrency">ل.س جديد</span>
+                            </div>
+                        </div>
+                        <div class="result-row details">
+                            <label>سعر الذهب</label>
+                            <span id="goldPriceResult">0 ل.س جديد</span>
+                        </div>
+                        <div class="result-row details">
+                            <label>رسم مصنعية</label>
+                            <span id="manufacturingResult">0 ل.س جديد</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Calculations -->
+                <div class="results-card additional-card">
+                    <h2>📈 حسابات إضافية</h2>
+                    <div class="additional-grid">
+                        <div class="additional-item">
+                            <span class="additional-label">سعر الأونصة</span>
+                            <span class="additional-value" id="ouncePrice">0</span>
+                            <span class="currency">(31.1035 غرام)</span>
+                        </div>
+                        <div class="additional-item">
+                            <span class="additional-label">سعر الليرة الذهبية</span>
+                            <span class="additional-value" id="liraPrice">0</span>
+                            <span class="currency">(6 غرام)</span>
+                        </div>
+                        <div class="additional-item">
+                            <span class="additional-label">سعر 10 غرام</span>
+                            <span class="additional-value" id="tenGramPrice">0</span>
+                            <span class="currency">ل.س جديد</span>
+                        </div>
+                        <div class="additional-item">
+                            <span class="additional-label">سعر 100 غرام</span>
+                            <span class="additional-value" id="hundredGramPrice">0</span>
+                            <span class="currency">ل.س جديد</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Currency Conversion Info -->
+                <div class="results-card info-card">
+                    <h2>💡 معلومات هامة</h2>
+                    <div class="info-content">
+                        <p><strong>تحويل العملة:</strong></p>
+                        <p>100 ليرة سورية قديمة = 1 ليرة سورية جديدة</p>
+                        <hr>
+                        <p><strong>معادلات العيارات:</strong></p>
+                        <p>عيار 22 = سعر 24 × (22/24)</p>
+                        <p>عيار 21 = سعر 24 × (21/24)</p>
+                        <p>عيار 18 = سعر 24 × (18/24)</p>
+                        <p>عيار 14 = سعر 24 × (14/24)</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 حاسبة أسعار الذهب - جميع الحقوق محفوظة</p>
+            <p class="keyboard-hint">💡 اختصارات: Ctrl+G (سعر البورصة) | Ctrl+E (سعر الصرف) | Ctrl+W (الوزن) | Escape (إعادة تعيين)</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
