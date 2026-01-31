@@ -462,7 +462,8 @@ body {
 /* ==================== Currency Switch ==================== */
 .currency-switch {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .switch-label {
@@ -476,8 +477,8 @@ body {
 
 .switch-btn {
     display: inline-block;
-    padding: 8px 20px;
-    font-size: 0.9rem;
+    padding: 8px 16px;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
     background: var(--bg-input);
@@ -485,7 +486,7 @@ body {
     border-radius: 8px;
     transition: var(--transition-fast);
     font-family: 'Cairo', sans-serif;
-    min-width: 80px;
+    min-width: 75px;
     text-align: center;
 }
 
@@ -611,8 +612,60 @@ body {
 /* ==================== Additional Grid ==================== */
 .additional-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 15px;
+}
+
+/* ==================== Lira Selector ==================== */
+.lira-selector {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-secondary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.lira-selector label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.lira-selector select {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 1rem;
+    background: var(--bg-widget);
+    border: 2px solid var(--border-secondary);
+    border-radius: 8px;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    appearance: none;
+    -webkit-appearance: none;
+    min-height: 45px;
+}
+
+.lira-selector select:focus {
+    outline: none;
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.lira-selector select:hover {
+    border-color: var(--border-primary);
+}
+
+.lira-selector select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 10px;
+    font-family: 'Cairo', sans-serif;
 }
 
 .additional-item {
@@ -741,6 +794,22 @@ body {
     
     .additional-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .currency-switch {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .lira-selector {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
     }
     
     .price-value {

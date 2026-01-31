@@ -218,6 +218,10 @@
                                 <input type="radio" name="karatCurrency" value="old" id="karatCurrencyOld">
                                 <span class="switch-btn">ل.س قديم</span>
                             </label>
+                            <label class="switch-label">
+                                <input type="radio" name="karatCurrency" value="usd" id="karatCurrencyUsd">
+                                <span class="switch-btn">$ USD</span>
+                            </label>
                         </div>
                     </div>
                     <div class="karat-grid">
@@ -262,6 +266,10 @@
                                 <input type="radio" name="pieceCurrency" value="old" id="pieceCurrencyOld">
                                 <span class="switch-btn">ل.س قديم</span>
                             </label>
+                            <label class="switch-label">
+                                <input type="radio" name="pieceCurrency" value="usd" id="pieceCurrencyUsd">
+                                <span class="switch-btn">$ USD</span>
+                            </label>
                         </div>
                     </div>
                     <div class="piece-result">
@@ -285,27 +293,51 @@
 
                 <!-- Additional Calculations -->
                 <div class="results-card additional-card">
-                    <h2>📈 حسابات إضافية</h2>
+                    <div class="card-header">
+                        <h2>📈 حسابات إضافية</h2>
+                        <div class="currency-switch">
+                            <label class="switch-label">
+                                <input type="radio" name="additionalCurrency" value="new" checked id="additionalCurrencyNew">
+                                <span class="switch-btn">ل.س جديد</span>
+                            </label>
+                            <label class="switch-label">
+                                <input type="radio" name="additionalCurrency" value="old" id="additionalCurrencyOld">
+                                <span class="switch-btn">ل.س قديم</span>
+                            </label>
+                            <label class="switch-label">
+                                <input type="radio" name="additionalCurrency" value="usd" id="additionalCurrencyUsd">
+                                <span class="switch-btn">$ USD</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="lira-selector">
+                        <label for="liraType">نوع الليرة الذهبية:</label>
+                        <select id="liraType">
+                            <option value="turkish">الليرة العثمانية - 7.216 غ - عيار 22</option>
+                            <option value="egyptian">الليرة المصرية - 7.988 غ - عيار 22</option>
+                            <option value="british">الليرة الإنكليزية - 7.988 غ - عيار 22</option>
+                        </select>
+                    </div>
                     <div class="additional-grid">
                         <div class="additional-item">
                             <span class="additional-label">سعر الأونصة</span>
                             <span class="additional-value" id="ouncePrice">0</span>
-                            <span class="currency">(31.1035 غرام)</span>
+                            <span class="currency" id="ounceCurrency">(31.1035 غرام)</span>
                         </div>
                         <div class="additional-item">
-                            <span class="additional-label">سعر الليرة الذهبية</span>
+                            <span class="additional-label" id="liraLabel">سعر الليرة العثمانية (تركية)</span>
                             <span class="additional-value" id="liraPrice">0</span>
-                            <span class="currency">(6 غرام)</span>
+                            <span class="currency" id="liraCurrency">(6.61 غرام خالص)</span>
                         </div>
                         <div class="additional-item">
                             <span class="additional-label">سعر 10 غرام</span>
                             <span class="additional-value" id="tenGramPrice">0</span>
-                            <span class="currency">ل.س جديد</span>
+                            <span class="currency" id="tenGramCurrency">ل.س جديد</span>
                         </div>
                         <div class="additional-item">
                             <span class="additional-label">سعر 100 غرام</span>
                             <span class="additional-value" id="hundredGramPrice">0</span>
-                            <span class="currency">ل.س جديد</span>
+                            <span class="currency" id="hundredGramCurrency">ل.س جديد</span>
                         </div>
                     </div>
                 </div>
